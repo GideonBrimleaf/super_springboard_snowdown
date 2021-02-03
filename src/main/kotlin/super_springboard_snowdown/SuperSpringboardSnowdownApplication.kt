@@ -45,7 +45,7 @@ class MessageResource(val service: MessageService) {
 		service.post(message)
 	}
 
-	private fun renderTemplate(templateName:String, templateArguments:Map<String, List<Any>> = mapOf("None" to listOf())):String {
+	private fun renderTemplate(templateName:String, templateArguments:Map<String, List<Any>>?=null):String {
 		val template = PebbleEngine.Builder().build().getTemplate("templates/$templateName.peb")
 		val writer = StringWriter()
 		template.evaluate(writer, templateArguments)
