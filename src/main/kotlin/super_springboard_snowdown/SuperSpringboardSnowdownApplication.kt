@@ -35,6 +35,11 @@ class MessageResource(val service: MessageService) {
 		return renderTemplate("messages_list", messages)
 	}
 
+	@GetMapping("/selector")
+	fun staticTemplate(): String {
+		return renderTemplate("selector")
+	}
+
 	@PostMapping
 	fun post(@RequestBody message: Message) {
 		service.post(message)
