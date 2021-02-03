@@ -31,17 +31,20 @@ class MessageResource(val service: MessageService) {
 
 	@GetMapping("/messages")
 	fun templated(model:Model): String {
-		val template = PebbleEngine.Builder().build().getTemplate("templates/messages_list.peb")
-		val writer = StringWriter()
-
-		template.evaluate(writer)
-
-		return writer.toString()
+		val messages = mapOf("messages" to service.findMessages())
+		return renderTemplate("messages_list.peb", messages)
 	}
 
 	@PostMapping
 	fun post(@RequestBody message: Message) {
 		service.post(message)
+	}
+
+	private fun renderTemplate(templateName:String, templateArguments:Map<String, List<Message>>):String {
+		val template = PebbleEngine.Builder().build().getTemplate("templates/$templateName")
+		val writer = StringWriter()
+		template.evaluate(writer, templateArguments)
+		return writer.toString()
 	}
 
 }

@@ -15,5 +15,13 @@
       <option>Apple</option>
     </select>
   </section>
+  <section>
+    <h2>My List of Messages:</h2>
+    <ul>
+      {% for message in messages  %}
+        <li>{{ message.text }}</li>
+      {% endfor %}
+    </ul>
+  </section>
 </body>
 </html>
