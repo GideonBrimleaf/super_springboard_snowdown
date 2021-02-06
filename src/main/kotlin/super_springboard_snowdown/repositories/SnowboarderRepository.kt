@@ -3,7 +3,7 @@ package super_springboard_snowdown.repositories
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Service
-import super_springboard_snowdown.Snowboarder
+import super_springboard_snowdown.models.Snowboarder
 
 @Service
 class SnowboarderService(val db: SnowboarderRepository) {
