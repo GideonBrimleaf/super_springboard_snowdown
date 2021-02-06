@@ -21,21 +21,5 @@ fun main(args: Array<String>) {
 	runApplication<SuperSpringboardSnowdownApplication>(*args)
 }
 
-@Service
-class SnowboarderService(val db: SnowboarderRepository) {
-
-	fun findSnowboarders(): List<Snowboarder> = db.findSnowboarders()
-
-	fun post(snowboarder: Snowboarder){
-		db.save(snowboarder)
-	}
-}
-
-interface SnowboarderRepository : CrudRepository<Snowboarder, String>{
-
-	@Query("select * from snowboarders")
-	fun findSnowboarders(): List<Snowboarder>
-}
-
 @Table("SNOWBOARDERS")
 data class Snowboarder(@Id val id: String?, val name: String, val age:Int, val profile:String)

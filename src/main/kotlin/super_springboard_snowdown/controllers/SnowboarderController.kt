@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import super_springboard_snowdown.Snowboarder
-import super_springboard_snowdown.SnowboarderService
+import super_springboard_snowdown.repositories.SnowboarderService
 
 @RestController
 class SnowboarderController(val service: SnowboarderService) {
