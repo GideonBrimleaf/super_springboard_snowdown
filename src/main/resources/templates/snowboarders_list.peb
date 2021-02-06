@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <section>
+{% extends 'templates/app.peb' %}
+
+{% block content %}
+  <main>
     <h1>My List of Snowboarders:</h1>
     <ul>
       {% for snowboarder in snowboarders  %}
@@ -17,6 +12,5 @@
         </li>
       {% endfor %}
     </ul>
-  </section>
-</body>
-</html>
+  </main>
+{% endblock %}

@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Springboard Snowdown</title>
-</head>
-<body>
-  <main>
-    <h1>Welcome to Super Springboard Snowdown!</h1>
+{% extends 'templates/app.peb' %}
+
+{% block content %}
+<main>
+  <h1>Welcome to Super Springboard Snowdown!</h1>
     <img
         src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ee/X_Games_logo.svg/1200px-X_Games_logo.svg.png"
         alt="xgames logo"
     >
-    </img>
-  </main>
-</body>
-</html>
+  </img>
+</main>
+{% endblock %}
+
