@@ -30,8 +30,8 @@ class SnowboarderResource(val service: SnowboarderService) {
 
 	@GetMapping("/snowboarders")
 	fun index(): String {
-		val messages = mapOf("messages" to service.findSnowboarders())
-		return renderTemplate("messages_list", messages)
+		val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
+		return renderTemplate("snowboarders_list", snowboarders)
 	}
 
 	@GetMapping("/selector")

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <h1>My List of Snowboarders:</h1>
+    <ul>
+      {% for snowboarder in snowboarders  %}
+        <li>
+            <h2>{{ snowboarder.name }}</h2>
+            <h3>{{ snowboarder.age }}</h3>
+            <img src="{{ snowboarder.profile }}" alt="{{ snowboarder.name }} profile"></img>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</body>
+</html>
