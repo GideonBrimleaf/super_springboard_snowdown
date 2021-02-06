@@ -21,33 +21,6 @@ fun main(args: Array<String>) {
 	runApplication<SuperSpringboardSnowdownApplication>(*args)
 }
 
-@RestController
-class SnowboarderResource(val service: SnowboarderService) {
-	@GetMapping
-	fun home(): String {
-		return renderTemplate("home")
-	}
-
-	@GetMapping("/snowboarders")
-	fun index(): String {
-		val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
-		return renderTemplate("snowboarders_list", snowboarders)
-	}
-
-	@PostMapping("/snowboarders")
-	fun post(@RequestBody snowboarder: Snowboarder) {
-		service.post(snowboarder)
-	}
-
-	private fun renderTemplate(templateName:String, templateArguments:Map<String, List<Any>>?=null):String {
-		val template = PebbleEngine.Builder().build().getTemplate("templates/$templateName.peb")
-		val writer = StringWriter()
-		template.evaluate(writer, templateArguments)
-		return writer.toString()
-	}
-
-}
-
 @Service
 class SnowboarderService(val db: SnowboarderRepository) {
 
