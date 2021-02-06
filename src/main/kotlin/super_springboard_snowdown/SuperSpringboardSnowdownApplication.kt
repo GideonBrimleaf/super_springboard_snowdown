@@ -25,12 +25,12 @@ fun main(args: Array<String>) {
 @RestController
 class MessageResource(val service: MessageService) {
 	@GetMapping
-	fun index(): List<Message> {
+	fun home(): List<Message> {
 		return service.findMessages()
 	}
 
 	@GetMapping("/messages")
-	fun messageTemplate(): String {
+	fun index(): String {
 		val messages = mapOf("messages" to service.findMessages())
 		return renderTemplate("messages_list", messages)
 	}
