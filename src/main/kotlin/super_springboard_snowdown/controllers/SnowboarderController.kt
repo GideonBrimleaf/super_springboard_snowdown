@@ -9,11 +9,6 @@ import super_springboard_snowdown.SnowboarderService
 
 @RestController
 class SnowboarderController(val service: SnowboarderService) {
-    @GetMapping
-    fun home(): String {
-        return renderTemplate("home")
-    }
-
     @GetMapping("/snowboarders")
     fun index(): String {
         val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
