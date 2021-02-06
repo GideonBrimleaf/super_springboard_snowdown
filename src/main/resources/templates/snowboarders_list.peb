@@ -6,9 +6,7 @@
     <ul>
       {% for snowboarder in snowboarders  %}
         <li>
-            <h2>{{ snowboarder.name }}</h2>
-            <h3>{{ snowboarder.age }}</h3>
-            <img src="{{ snowboarder.profile }}" alt="{{ snowboarder.name }} profile"></img>
+            <a href="/snowboarders/{{ snowboarder.id }}"><h2>{{ snowboarder.name }}</h2></a>
         </li>
       {% endfor %}
     </ul>

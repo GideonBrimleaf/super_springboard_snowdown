@@ -1,0 +1,9 @@
+{% extends 'templates/app.peb' %}
+
+{% block content %}
+  <main>
+    <h1>{{ snowboarder.name }}</h1>
+    <p>{{ snowboarder.age }}</p>
+    <img src="{{ snowboarder.profile }}" alt="{{ snowboarder.name }}'s profile pic"></img>
+  </main>
+{% endblock %}

@@ -1,9 +1,6 @@
 package super_springboard_snowdown.controllers
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import super_springboard_snowdown.models.Snowboarder
 import super_springboard_snowdown.repositories.SnowboarderService
 
@@ -13,6 +10,12 @@ class SnowboarderController(val service: SnowboarderService) {
     fun index(): String {
         val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
         return renderTemplate("snowboarders_list", snowboarders)
+    }
+
+    @GetMapping("/snowboarders/{id}")
+    fun show(@PathVariable id:String):String {
+        val snowboarder = mapOf("snowboarder" to service.findSnowboarderById(id).get())
+        return renderTemplate("snowboarder_show", snowboarder)
     }
 
     @PostMapping("/snowboarders")
