@@ -24,19 +24,14 @@ fun main(args: Array<String>) {
 @RestController
 class SnowboarderResource(val service: SnowboarderService) {
 	@GetMapping
-	fun home(): List<Snowboarder> {
-		return service.findSnowboarders()
+	fun home(): String {
+		return renderTemplate("home")
 	}
 
 	@GetMapping("/snowboarders")
 	fun index(): String {
 		val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
 		return renderTemplate("snowboarders_list", snowboarders)
-	}
-
-	@GetMapping("/selector")
-	fun staticTemplate(): String {
-		return renderTemplate("selector")
 	}
 
 	@PostMapping("/snowboarders")
