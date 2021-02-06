@@ -1,6 +1,9 @@
+DROP TABLE IF EXISTS snowboarders;
 DROP TABLE IF EXISTS messages;
 
-CREATE TABLE messages (
+CREATE TABLE snowboarders (
   id VARCHAR(60) DEFAULT RANDOM_UUID() PRIMARY KEY,
-  text VARCHAR NOT NULL
+  name VARCHAR NOT NULL,
+  age INT NOT NULL,
+  profile VARCHAR NOT NULL
 );

@@ -8,7 +8,6 @@ import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Service
-import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -23,15 +22,15 @@ fun main(args: Array<String>) {
 }
 
 @RestController
-class MessageResource(val service: MessageService) {
+class SnowboarderResource(val service: SnowboarderService) {
 	@GetMapping
-	fun home(): List<Message> {
-		return service.findMessages()
+	fun home(): List<Snowboarder> {
+		return service.findSnowboarders()
 	}
 
-	@GetMapping("/messages")
+	@GetMapping("/snowboarders")
 	fun index(): String {
-		val messages = mapOf("messages" to service.findMessages())
+		val messages = mapOf("messages" to service.findSnowboarders())
 		return renderTemplate("messages_list", messages)
 	}
 
@@ -40,9 +39,9 @@ class MessageResource(val service: MessageService) {
 		return renderTemplate("selector")
 	}
 
-	@PostMapping
-	fun post(@RequestBody message: Message) {
-		service.post(message)
+	@PostMapping("/snowboarders")
+	fun post(@RequestBody snowboarder: Snowboarder) {
+		service.post(snowboarder)
 	}
 
 	private fun renderTemplate(templateName:String, templateArguments:Map<String, List<Any>>?=null):String {
@@ -55,20 +54,20 @@ class MessageResource(val service: MessageService) {
 }
 
 @Service
-class MessageService(val db: MessageRepository) {
+class SnowboarderService(val db: SnowboarderRepository) {
 
-	fun findMessages(): List<Message> = db.findMessages()
+	fun findSnowboarders(): List<Snowboarder> = db.findSnowboarders()
 
-	fun post(message: Message){
-		db.save(message)
+	fun post(snowboarder: Snowboarder){
+		db.save(snowboarder)
 	}
 }
 
-interface MessageRepository : CrudRepository<Message, String>{
+interface SnowboarderRepository : CrudRepository<Snowboarder, String>{
 
-	@Query("select * from messages")
-	fun findMessages(): List<Message>
+	@Query("select * from snowboarders")
+	fun findSnowboarders(): List<Snowboarder>
 }
 
-@Table("MESSAGES")
-data class Message(@Id val id: String?, val text: String)
+@Table("SNOWBOARDERS")
+data class Snowboarder(@Id val id: String?, val name: String, val age:Int, val profile:String)
