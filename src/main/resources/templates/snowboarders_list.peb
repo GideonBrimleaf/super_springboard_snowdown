@@ -3,7 +3,7 @@
 {% block content %}
   <main>
     <h1 class="my-4 text-5xl text-center">My List of Snowboarders:</h1>
-    <form class="text-center" action="/snowboarders" method="post" modelAttribute="snowboarder">
+    <form class="text-center" action="/snowboarders" method="post">
       <label for="name">Snowboarder Name:</label>
       <input class="border rounded-md" type="text" id="name" name="name" placeholder="Snowboarder Name">
       <label for="age">Snowboarder Age:</label>
