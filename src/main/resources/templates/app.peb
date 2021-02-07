@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <title>Super Springboard Snowdown</title>
 </head>
 <body>
-  {% block content %}
-
-  {% endblock %}
+  <header class="bg-gray-800">
+    <a href="/">
+      <img src="https://www.pngitem.com/pimgs/m/114-1143194_x-games-logo-logotipo-x-games-minneapolis-logo.png">
+    </a>
+    <nav>
+      <ul>
+        <li><a></a><li>
+      </ul>
+    </nav>
+  </header>
+  {% block content %} {% endblock %}
 </body>
 </html>
