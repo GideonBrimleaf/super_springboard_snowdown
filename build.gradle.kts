@@ -24,6 +24,7 @@ dependencies {
 	implementation("io.pebbletemplates:pebble-spring-boot-starter:3.1.4")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 tasks.withType<KotlinCompile> {

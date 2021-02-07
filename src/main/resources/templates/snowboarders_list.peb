@@ -2,7 +2,7 @@
 
 {% block content %}
   <main>
-    <h1>My List of Snowboarders:</h1>
+    <h1 class="mt-2 text-5xl text-center">My List of Snowboarders:</h1>
     <ul>
       {% for snowboarder in snowboarders  %}
         <li>

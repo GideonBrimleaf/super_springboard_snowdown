@@ -7,13 +7,11 @@
   <title>Super Springboard Snowdown</title>
 </head>
 <body>
-  <header class="bg-gray-800">
-    <a href="/">
-      <img src="https://www.pngitem.com/pimgs/m/114-1143194_x-games-logo-logotipo-x-games-minneapolis-logo.png">
-    </a>
-    <nav>
+  <header class="bg-gray-800 h-12 flex pt-4">
+    <a href="/"><h1 class="bold text-white">Superboard Snowdown</h1></a>
+    <nav class="ml-auto mr-4">
       <ul>
-        <li><a></a><li>
+        <li><a href="/snowboarders" class="text-white">Snowboarders</a><li>
       </ul>
     </nav>
   </header>
