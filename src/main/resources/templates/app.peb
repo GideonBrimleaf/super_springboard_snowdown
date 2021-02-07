@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="bg-gray-800 h-12 flex pt-4">
-    <a href="/"><h1 class="bold text-white">Superboard Snowdown</h1></a>
+    <a href="/"><h1 class="ml-4 bold text-white">Superboard Snowdown</h1></a>
     <nav class="ml-auto mr-4">
       <ul>
         <li><a href="/snowboarders" class="text-white">Snowboarders</a><li>

@@ -2,7 +2,15 @@
 
 {% block content %}
   <main>
-    <h1 class="mt-2 text-5xl text-center">My List of Snowboarders:</h1>
+    <h1 class="my-4 text-5xl text-center">My List of Snowboarders:</h1>
+    <form class="text-center" action="/snowboarders" method="post">
+      <label for="name">Snowboarder Name:</label>
+      <input class="border rounded-md" type="text" id="name" name="snowboarder_name" placeholder="Snowboarder Name">
+      <label for="age">Snowboarder Age:</label>
+      <input class="border rounded-md" type="text" id="age" name="snowboarder_age" placeholder="Snowboarder Age">
+      <label for="name">Profile Image:</label>
+      <input class="border rounded-md" type="text" id="image" name="profile_image">
+    </form>
     <ul>
       {% for snowboarder in snowboarders  %}
         <li>
