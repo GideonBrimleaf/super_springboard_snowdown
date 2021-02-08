@@ -1,0 +1,14 @@
+{% extends 'templates/app.peb' %}
+
+{% block content %}
+  <main>
+    <h1 class="my-4 text-5xl text-center">My List of Events:</h1>
+    <ul>
+      {% for event in events  %}
+        <li>
+            {{ event.name }} - {{ event.location }}
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}
