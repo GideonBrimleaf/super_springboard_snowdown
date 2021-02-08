@@ -8,7 +8,7 @@ import super_springboard_snowdown.repositories.EventRepository
 class EventController(val eventRepository: EventRepository) {
     @GetMapping("/events")
     fun index():String {
-        val events = eventRepository.findAll().map { it }
+        val events = eventRepository.findAll()
         return renderTemplate("events_list", mapOf("events" to events))
     }
 }
