@@ -6,11 +6,11 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.stereotype.Component
 import super_springboard_snowdown.models.Event
 import super_springboard_snowdown.models.Snowboarder
-import super_springboard_snowdown.repositories.EventService
+import super_springboard_snowdown.repositories.EventRepository
 import super_springboard_snowdown.repositories.SnowboarderService
 
 @Component
-class Seeds(val snowboarderService: SnowboarderService, val eventService: EventService): ApplicationRunner {
+class Seeds(val snowboarderService: SnowboarderService, val eventRepository: EventRepository): ApplicationRunner {
 
     override fun run(args: ApplicationArguments?) {
         val maxParrot = Snowboarder(
@@ -25,6 +25,6 @@ class Seeds(val snowboarderService: SnowboarderService, val eventService: EventS
         )
 
         snowboarderService.post(maxParrot)
-        eventService.saveEvent(snowboardBigAir)
+        eventRepository.save(snowboardBigAir)
     }
 }
