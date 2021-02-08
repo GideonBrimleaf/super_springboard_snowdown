@@ -9,7 +9,6 @@
             alt="xgames logo"
       >
     </div>
-
 </main>
 {% endblock %}
 
