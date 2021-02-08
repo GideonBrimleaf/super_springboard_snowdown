@@ -2,12 +2,14 @@
 
 {% block content %}
 <main>
-  <h1 class="my-2 text-5xl text-center">Welcome to The Superboard Snowdown!</h1>
-    <img
-        src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ee/X_Games_logo.svg/1200px-X_Games_logo.svg.png"
-        alt="xgames logo"
-    >
-  </img>
+  <h1 class="my-4 text-5xl text-center">Welcome to The Superboard Snowdown!</h1>
+    <div class="flex justify-center">
+      <img  class="max-w-xl"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ee/X_Games_logo.svg/1200px-X_Games_logo.svg.png"
+            alt="xgames logo"
+      >
+    </div>
+
 </main>
 {% endblock %}
 
