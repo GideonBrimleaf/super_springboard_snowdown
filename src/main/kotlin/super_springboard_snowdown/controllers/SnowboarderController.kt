@@ -7,16 +7,16 @@ import super_springboard_snowdown.models.Snowboarder
 import super_springboard_snowdown.repositories.SnowboarderService
 
 @RestController
-class SnowboarderController(val service: SnowboarderService): ApplicationController() {
+class SnowboarderController(val snowboarderService: SnowboarderService): ApplicationController() {
     @GetMapping("/snowboarders")
     fun index(): String {
-        val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
+        val snowboarders = mapOf("snowboarders" to snowboarderService.findSnowboarders())
         return renderTemplate("snowboarders_list", snowboarders)
     }
 
     @GetMapping("/snowboarders/{id}")
     fun show(@PathVariable id:String):String {
-        val snowboarder = mapOf("snowboarder" to service.findSnowboarderById(id).get())
+        val snowboarder = mapOf("snowboarder" to snowboarderService.findSnowboarderById(id).get())
         return renderTemplate("snowboarder_show", snowboarder)
     }
 
@@ -29,12 +29,12 @@ class SnowboarderController(val service: SnowboarderService): ApplicationControl
         val profile = formData["profile"]!!.first()
 
         val newSnowboarder = Snowboarder(name = name, age = age, profile = profile)
-        service.post(newSnowboarder)
+        snowboarderService.post(newSnowboarder)
         return RedirectView("/snowboarders")
     }
 
     @PostMapping("/api/snowboarders")
     fun post(@RequestBody snowboarder: Snowboarder) {
-        service.post(snowboarder)
+        snowboarderService.post(snowboarder)
     }
 }

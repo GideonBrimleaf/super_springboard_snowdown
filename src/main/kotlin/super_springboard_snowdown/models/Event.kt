@@ -1,13 +1,17 @@
 package super_springboard_snowdown.models
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+import javax.persistence.*
 
-@Table("EVENTS")
+@Entity
+@Table(name="events")
 data class Event (
     @Id
-    val id:String?=null,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id:Long?=null,
+    @Column(name="name")
     val name:String,
+    @Column(name="location")
     val location:String,
-    val prizeMoney:Int,
+    @Column(name="prize_money")
+    val prizeMoney:Int
 )

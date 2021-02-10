@@ -1,7 +1,17 @@
 package super_springboard_snowdown.models
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+import javax.persistence.*
 
-@Table("SNOWBOARDERS")
-data class Snowboarder(@Id val id:String?=null, val name: String, val age: Int, val profile: String)
+@Entity
+@Table(name="snowboarders")
+data class Snowboarder (
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id:Long?=null,
+    @Column(name="name")
+    val name: String,
+    @Column(name="age")
+    val age: Int,
+    @Column(name="profile")
+    val profile: String,
+)

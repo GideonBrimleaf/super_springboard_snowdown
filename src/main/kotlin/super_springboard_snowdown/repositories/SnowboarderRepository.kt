@@ -1,7 +1,6 @@
 package super_springboard_snowdown.repositories
 
-import org.springframework.data.jdbc.repository.query.Query
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Service
 import super_springboard_snowdown.models.Snowboarder
 import java.util.*
@@ -9,7 +8,7 @@ import java.util.*
 @Service
 class SnowboarderService(val db: SnowboarderRepository) {
 
-    fun findSnowboarders(): List<Snowboarder> = db.findSnowboarders()
+    fun findSnowboarders(): List<Snowboarder> = db.findAll()
 
     fun findSnowboarderById(id:String): Optional<Snowboarder> = db.findById(id)
 
@@ -18,8 +17,8 @@ class SnowboarderService(val db: SnowboarderRepository) {
     }
 }
 
-interface SnowboarderRepository : CrudRepository<Snowboarder, String> {
+interface SnowboarderRepository : JpaRepository<Snowboarder, String> {
 
-    @Query("select * from snowboarders")
-    fun findSnowboarders(): List<Snowboarder>
+//    @Query("SELECT * FROM snowboarders")
+//    fun findAllSnowboarders(): List<Snowboarder>
 }
