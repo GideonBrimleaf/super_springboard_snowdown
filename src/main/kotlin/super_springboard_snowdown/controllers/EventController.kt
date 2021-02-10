@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController
 import super_springboard_snowdown.repositories.EventRepository
 
 @RestController
-class EventController(val eventRepository: EventRepository) {
+class EventController(val eventRepository: EventRepository): ApplicationController() {
     @GetMapping("/events")
     fun index():String {
         val events = eventRepository.findAll()

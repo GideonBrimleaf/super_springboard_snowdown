@@ -1,6 +1,5 @@
 package super_springboard_snowdown.controllers
 
-import org.springframework.ui.ModelMap
 import org.springframework.util.MultiValueMap
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.view.RedirectView
@@ -8,7 +7,7 @@ import super_springboard_snowdown.models.Snowboarder
 import super_springboard_snowdown.repositories.SnowboarderService
 
 @RestController
-class SnowboarderController(val service: SnowboarderService) {
+class SnowboarderController(val service: SnowboarderService): ApplicationController() {
     @GetMapping("/snowboarders")
     fun index(): String {
         val snowboarders = mapOf("snowboarders" to service.findSnowboarders())
