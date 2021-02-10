@@ -22,8 +22,8 @@ class SnowboarderController(val service: SnowboarderService): ApplicationControl
 
     @PostMapping("/snowboarders")
     fun create(@RequestBody formData:MultiValueMap<String, String>):RedirectView {
-//        This way is more flexible than straight up mapping the model attribute as you can
-//        capture the form values and create an object manually
+//      This way is more flexible than straight up mapping the model attribute as you can
+//      capture the form values and create an object manually
         val name = formData["name"]!!.first()
         val age = formData["age"]!!.first().toInt()
         val profile = formData["profile"]!!.first()
