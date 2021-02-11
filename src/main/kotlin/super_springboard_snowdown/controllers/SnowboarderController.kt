@@ -15,7 +15,7 @@ class SnowboarderController(val snowboarderService: SnowboarderService): Applica
     }
 
     @GetMapping("/snowboarders/{id}")
-    fun show(@PathVariable id:String):String {
+    fun show(@PathVariable id:Long):String {
         val snowboarder = mapOf("snowboarder" to snowboarderService.findSnowboarderById(id).get())
         return renderTemplate("snowboarder_show", snowboarder)
     }

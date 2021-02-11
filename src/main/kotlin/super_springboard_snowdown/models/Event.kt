@@ -13,5 +13,7 @@ data class Event (
     @Column(name="location")
     val location:String,
     @Column(name="prize_money")
-    val prizeMoney:Int
+    val prizeMoney:Int,
+    @ManyToMany(mappedBy = "events")
+    val snowboarders:List<Snowboarder> = mutableListOf()
 )

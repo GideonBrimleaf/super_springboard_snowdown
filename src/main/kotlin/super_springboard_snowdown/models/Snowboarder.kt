@@ -14,4 +14,11 @@ data class Snowboarder (
     val age: Int,
     @Column(name="profile")
     val profile: String,
+    @ManyToMany
+    @JoinTable(
+        name = "signups",
+        joinColumns = [JoinColumn(name = "snowboarder_id")],
+        inverseJoinColumns = [JoinColumn(name = "event_id")]
+    )
+    val events: List<Event> = mutableListOf()
 )

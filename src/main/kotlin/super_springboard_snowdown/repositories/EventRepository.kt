@@ -6,4 +6,4 @@ import super_springboard_snowdown.models.Event
 
 // We can't straight up use the JPA Repository interface directly
 // So we need this even if it's empty
-interface EventRepository: JpaRepository<Event, String>
+interface EventRepository: JpaRepository<Event, Long>

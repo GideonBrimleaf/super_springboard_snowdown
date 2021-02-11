@@ -11,14 +11,14 @@ class SnowboarderService(val db: SnowboarderRepository) {
 
     fun findSnowboarders(): List<Snowboarder> = db.findAllSnowboarders()
 
-    fun findSnowboarderById(id:String): Optional<Snowboarder> = db.findById(id)
+    fun findSnowboarderById(id:Long): Optional<Snowboarder> = db.findById(id)
 
     fun post(snowboarder: Snowboarder){
         db.save(snowboarder)
     }
 }
 
-interface SnowboarderRepository : JpaRepository<Snowboarder, String> {
+interface SnowboarderRepository : JpaRepository<Snowboarder, Long> {
 
     @Query("SELECT * FROM snowboarders", nativeQuery = true)
     fun findAllSnowboarders(): List<Snowboarder>
