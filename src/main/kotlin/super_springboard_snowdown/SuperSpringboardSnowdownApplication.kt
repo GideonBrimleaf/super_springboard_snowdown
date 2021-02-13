@@ -8,7 +8,6 @@ import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Service
-import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -51,7 +50,6 @@ class MessageResource(val service: MessageService) {
 		template.evaluate(writer, templateArguments)
 		return writer.toString()
 	}
-
 }
 
 @Service
