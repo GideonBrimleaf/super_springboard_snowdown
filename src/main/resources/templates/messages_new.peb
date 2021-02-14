@@ -6,14 +6,10 @@
   <title>Document</title>
 </head>
 <body>
-  <section>
-    <h1>My Amazing Selector!</h1>
-    <select>
-      <option selected="selected" disabled>Select a Thing:</option>
-      <option>Banana</option>
-      <option>Orange</option>
-      <option>Apple</option>
-    </select>
-  </section>
+  <form action="/messages" method="post">
+      <label for="message">Message:</label>
+      <input type="text" name="message" placeholder="Enter your message here">
+      <input type="submit" value="Send!">
+  </form>
 </body>
 </html>

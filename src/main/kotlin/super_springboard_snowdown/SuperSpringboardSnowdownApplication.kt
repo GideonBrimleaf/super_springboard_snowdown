@@ -8,10 +8,12 @@ import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Service
+import org.springframework.util.MultiValueMap
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.servlet.view.RedirectView
 import java.io.StringWriter
 
 @SpringBootApplication
@@ -35,8 +37,16 @@ class MessageResource(val service: MessageService) {
 	}
 
 	@GetMapping("/messages/new")
-	fun staticTemplate(): String {
+	fun new(): String {
 		return renderTemplate("messages_new")
+	}
+
+	@PostMapping("/messages")
+	fun create(@RequestBody formData: MultiValueMap<String, String>): RedirectView {
+		val message = formData["message"]!!.first()
+		val newMessage = Message(text=message)
+		service.post(newMessage)
+		return RedirectView("/messages")
 	}
 
 	@PostMapping
@@ -69,4 +79,4 @@ interface MessageRepository : CrudRepository<Message, String>{
 }
 
 @Table("MESSAGES")
-data class Message(@Id val id: String?, val text: String)
+data class Message(@Id val id: String?=null, val text: String)
