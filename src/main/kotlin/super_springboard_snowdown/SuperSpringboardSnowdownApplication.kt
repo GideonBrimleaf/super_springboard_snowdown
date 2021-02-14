@@ -34,9 +34,9 @@ class MessageResource(val service: MessageService) {
 		return renderTemplate("messages_list", messages)
 	}
 
-	@GetMapping("/selector")
+	@GetMapping("/messages/new")
 	fun staticTemplate(): String {
-		return renderTemplate("selector")
+		return renderTemplate("messages_new")
 	}
 
 	@PostMapping
