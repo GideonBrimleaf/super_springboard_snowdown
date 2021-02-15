@@ -63,16 +63,16 @@ class MessageResource(val service: MessageService) {
 @Service
 class MessageService(val db: JdbcTemplate) {
 
-	fun findMessages(): List<Message> = db.query("select * from messages") { resSet, _ ->
+	fun findMessages(): List<Message> = db.query("SELECT * FROM messages") { resSet, _ ->
 		Message(resSet.getString("id"), resSet.getString("text"))
 	}
 
-	fun findMessagesById(id:String): List<Message> = db.query("select * from messages where id = ?", id) {
+	fun findMessagesById(id:String): List<Message> = db.query("SELECT * FROM messages WHERE id = ?", id) {
 			resSet, _ -> Message(resSet.getString("id"), resSet.getString("text"))
 	}
 
 	fun post(message: Message){
-		db.update("insert into messages values (?, ?)",
+		db.update("INSERT INTO messages VALUES (?, ?)",
 			message.id ?: message.text.uuid(), message.text
 		)
 	}
