@@ -7,12 +7,13 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.CrudRepository
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.core.RowMapper
+import org.springframework.jdbc.core.query
 import org.springframework.stereotype.Service
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import super_springboard_snowdown.kotlin_extensions.uuid
 import java.io.StringWriter
 
 @SpringBootApplication
@@ -27,6 +28,11 @@ class MessageResource(val service: MessageService) {
 	@GetMapping
 	fun home(): List<Message> {
 		return service.findMessages()
+	}
+
+	@GetMapping("{id}")
+	fun show(@PathVariable id: String): List<Message> {
+		return service.findMessagesById(id)
 	}
 
 	@GetMapping("/messages")
@@ -55,20 +61,21 @@ class MessageResource(val service: MessageService) {
 }
 
 @Service
-class MessageService(val db: MessageRepository) {
+class MessageService(val db: JdbcTemplate) {
 
-	fun findMessages(): List<Message> = db.findMessages()
+	fun findMessages(): List<Message> = db.query("select * from messages") { resSet, _ ->
+		Message(resSet.getString("id"), resSet.getString("text"))
+	}
+
+	fun findMessagesById(id:String): List<Message> = db.query("select * from messages where id = ?", id) {
+			resSet, _ -> Message(resSet.getString("id"), resSet.getString("text"))
+	}
 
 	fun post(message: Message){
-		db.save(message)
+		db.update("insert into messages values (?, ?)",
+			message.id ?: message.text.uuid(), message.text
+		)
 	}
 }
 
-interface MessageRepository : CrudRepository<Message, String>{
-
-	@Query("select * from messages")
-	fun findMessages(): List<Message>
-}
-
-@Table("MESSAGES")
-data class Message(@Id val id: String?, val text: String)
+data class Message(val id: String?, val text: String)
