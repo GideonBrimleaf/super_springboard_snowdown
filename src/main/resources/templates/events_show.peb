@@ -6,6 +6,13 @@
     <p>{{ event.location }}</p>
     <p>£{{ event.prizeMoney }}</p>
     <br>
+    <h2>Athletes Taking Part:</h2>
+    <ul>
+    {% for snowboarder in event.snowboarders %}
+        <li>{{ snowboarder.name }}</li>
+    {% endfor %}
+    </ul>
+    <br>
     <h2>Sign Up An Athlete</h2>
     <form>
         <label for="athlete_select">Select a Snowboarder</label>
