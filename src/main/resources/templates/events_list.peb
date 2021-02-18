@@ -4,9 +4,9 @@
   <main>
     <h1 class="my-4 text-5xl text-center">My List of Events:</h1>
     <ul>
-      {% for event in events  %}
-        <li>
-            {{ event.name }} - {{ event.location }}
+      {% for event in events %}
+        <li class="ml-10">
+            <a href="/events/{{ event.id }}">{{ event.name }} - {{ event.location }}</a>
         </li>
       {% endfor %}
     </ul>
