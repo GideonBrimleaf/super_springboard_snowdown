@@ -19,7 +19,10 @@
         <select name="event_id" id="event_select">
             <option value="" selected="selected" disabled>Events:</option>
             {% for event in events %}
-            <option value="{{ event.id }}">{{event.name}}</option>
+            {% if snowboarder.events contains event %}
+            {% else %}
+                <option value="{{ event.id }}">{{event.name}}</option>
+            {% endif %}
             {% endfor %}
         </select>
         <input type="submit" value="Sign Up to Event">
