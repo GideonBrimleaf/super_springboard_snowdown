@@ -12,5 +12,5 @@ data class Snowboarder (
         name = "signups",
         joinColumns = [JoinColumn(name = "snowboarder_id")],
         inverseJoinColumns = [JoinColumn(name = "event_id")]
-    ) val events: List<Event> = mutableListOf(),
+    ) val events: MutableList<Event> = mutableListOf(),
 )

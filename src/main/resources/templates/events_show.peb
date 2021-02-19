@@ -14,9 +14,9 @@
     </ul>
     <br>
     <h2>Sign Up An Athlete</h2>
-    <form method="post" action="/events/{{ event.id }}/">
+    <form method="post" action="/events/{{ event.id }}/add-snowboarder">
         <label for="athlete_select">Select a Snowboarder</label>
-        <select name="snowboarders" id="athlete_select">
+        <select name="snowboarder_id" id="athlete_select">
             <option value="" selected="selected" disabled>Snowboarders:</option>
             {% for snowboarder in snowboarders %}
             <option value="{{ snowboarder.id }}">{{snowboarder.name}}</option>
