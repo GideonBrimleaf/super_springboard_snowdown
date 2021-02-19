@@ -4,10 +4,13 @@ import org.springframework.util.MultiValueMap
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.view.RedirectView
 import super_springboard_snowdown.models.Snowboarder
+import super_springboard_snowdown.repositories.EventRepository
 import super_springboard_snowdown.repositories.SnowboarderService
 
 @RestController
-class SnowboarderController(val snowboarderService: SnowboarderService): ApplicationController() {
+class SnowboarderController(val snowboarderService: SnowboarderService, val eventRepository: EventRepository):
+    ApplicationController() {
+
     @GetMapping("/snowboarders")
     fun index(): String {
         val snowboarders = mapOf("snowboarders" to snowboarderService.findSnowboarders())
@@ -16,8 +19,9 @@ class SnowboarderController(val snowboarderService: SnowboarderService): Applica
 
     @GetMapping("/snowboarders/{id}")
     fun show(@PathVariable id:Long):String {
-        val snowboarder = mapOf("snowboarder" to snowboarderService.findSnowboarderById(id).get())
-        return renderTemplate("snowboarder_show", snowboarder)
+        val snowboarder = snowboarderService.findSnowboarderById(id).get()
+        val events = eventRepository.findAll()
+        return renderTemplate("snowboarder_show", mapOf("snowboarder" to snowboarder, "events" to events))
     }
 
     @PostMapping("/snowboarders")
