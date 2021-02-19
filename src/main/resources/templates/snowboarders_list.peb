@@ -12,7 +12,7 @@
       <input class="border rounded-md" type="text" id="image" name="profile">
       <input type="submit" value="Create Athlete">
     </form>
-    <ul>
+    <ul class="mx-10 my-5">
       {% for snowboarder in snowboarders  %}
         <li>
             <a href="/snowboarders/{{ snowboarder.id }}"><h2>{{ snowboarder.name }}</h2></a>

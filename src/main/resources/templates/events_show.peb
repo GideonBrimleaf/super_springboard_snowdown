@@ -1,7 +1,7 @@
 {% extends 'templates/app.peb' %}
 
 {% block content %}
-  <main>
+  <main class="mx-10 my-5">
     <h1>{{ event.name }}</h1>
     <p>{{ event.location }}</p>
     <p>£{{ event.prizeMoney }}</p>
@@ -14,7 +14,7 @@
     </ul>
     <br>
     <h2>Sign Up An Athlete</h2>
-    <form>
+    <form method="post" action="/events/{{ event.id }}/">
         <label for="athlete_select">Select a Snowboarder</label>
         <select name="snowboarders" id="athlete_select">
             <option value="" selected="selected" disabled>Snowboarders:</option>
@@ -22,6 +22,7 @@
             <option value="{{ snowboarder.id }}">{{snowboarder.name}}</option>
             {% endfor %}
         </select>
+        <input type="submit" value="Add Snowboarder">
     </form>
   </main>
 {% endblock %}

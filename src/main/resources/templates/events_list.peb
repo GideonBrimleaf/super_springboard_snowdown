@@ -2,7 +2,7 @@
 
 {% block content %}
   <main>
-    <h1 class="my-4 text-5xl text-center">My List of Events:</h1>
+    <h1 class="my-5 mx-10 text-5xl text-center">My List of Events:</h1>
     <ul>
       {% for event in events %}
         <li class="ml-10">
