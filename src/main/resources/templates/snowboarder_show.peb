@@ -2,8 +2,20 @@
 
 {% block content %}
   <main class="mx-10 my-5">
+    <div class="h-1/4 w-1/4">
+        <img class="object-contain" src="{{ snowboarder.profile }}" alt="{{ snowboarder.name }}'s profile pic">
+    </div>
     <h1>{{ snowboarder.name }}</h1>
-    <p>{{ snowboarder.age }}</p>
-    <img src="{{ snowboarder.profile }}" alt="{{ snowboarder.name }}'s profile pic">
+    <p>Age: {{ snowboarder.age }}</p>
+    <h2>Events Signed Up:</h2>
+    <ul>
+    {% for event in snowboarder.events %}
+        <li>{{ event.name }}</li>
+    {% endfor %}
+    </ul>
+    <p>Sign up to an Event:</p>
+    <form>
+
+    </form>
   </main>
 {% endblock %}

@@ -14,7 +14,7 @@ class Seeds(val snowboarderService: SnowboarderService, val eventRepository: Eve
     override fun run(args: ApplicationArguments?) {
         val maxParrot = Snowboarder(
             name = "Max Parrot",
-            age = 30,
+            age = 26,
             profile = "https://i0.heartyhosting.com/www.dewtour.com/wp-content/uploads/2020/02/max_parrot_RESIZED.jpg")
 
         val snowboardBigAir = Event(
