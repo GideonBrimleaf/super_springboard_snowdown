@@ -27,8 +27,8 @@ class EventController(val eventRepository: EventRepository, val snowboarderRepos
         val snowboarderId = formData["snowboarder_id"]!!.first().toLong()
         val foundSnowboarder = snowboarderRepository.findById(snowboarderId).get()
 
-        foundSnowboarder.events.add(foundEvent)
-        snowboarderRepository.saveAndFlush(foundSnowboarder)
+        foundEvent.snowboarders.add(foundSnowboarder)
+        eventRepository.saveAndFlush(foundEvent)
         return RedirectView("/events/$id")
     }
 }
