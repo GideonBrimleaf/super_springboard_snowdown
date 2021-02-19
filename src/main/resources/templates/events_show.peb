@@ -19,7 +19,10 @@
         <select name="snowboarder_id" id="athlete_select">
             <option value="" selected="selected" disabled>Snowboarders:</option>
             {% for snowboarder in snowboarders %}
-            <option value="{{ snowboarder.id }}">{{snowboarder.name}}</option>
+            {% if event.snowboarders contains snowboarder %}
+            {% else %}
+                <option value="{{ snowboarder.id }}">{{snowboarder.name}}</option>
+            {% endif %}
             {% endfor %}
         </select>
         <input type="submit" value="Add Snowboarder">
