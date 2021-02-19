@@ -37,6 +37,17 @@ class SnowboarderController(val snowboarderService: SnowboarderService, val even
         return RedirectView("/snowboarders")
     }
 
+    @PostMapping("/snowboarders/{id}/add-event")
+    fun addEvent(@PathVariable id:Long, @RequestBody formData:MultiValueMap<String, String>):RedirectView {
+        val foundSnowboarder = snowboarderService.findSnowboarderById(id).get()
+        val eventId = formData["event_id"]!!.first().toLong()
+        val foundEvent = eventRepository.findById(eventId).get()
+
+        foundSnowboarder.events.add(foundEvent)
+        snowboarderService.post(foundSnowboarder)
+        return RedirectView("/snowboarders/$id")
+    }
+
     @PostMapping("/api/snowboarders")
     fun post(@RequestBody snowboarder: Snowboarder) {
         snowboarderService.post(snowboarder)
