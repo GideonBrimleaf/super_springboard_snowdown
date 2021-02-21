@@ -23,8 +23,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("io.pebbletemplates:pebble-spring-boot-starter:3.1.4")
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.kotest:kotest-runner-junit5:4.4.1")
