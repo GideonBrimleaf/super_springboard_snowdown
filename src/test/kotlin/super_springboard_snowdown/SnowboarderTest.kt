@@ -10,10 +10,7 @@ import super_springboard_snowdown.models.Snowboarder
 import super_springboard_snowdown.repositories.SnowboarderService
 
 @SpringBootTest
-class SnowboarderTest(
-    private val snowboarderService: SnowboarderService
-): StringSpec() {
-
+class SnowboarderTest(private val snowboarderService: SnowboarderService): StringSpec() {
     lateinit var craigMcMo:Snowboarder
     lateinit var railsJam: Event
 
