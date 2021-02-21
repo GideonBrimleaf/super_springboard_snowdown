@@ -12,14 +12,16 @@ class EventController(val eventRepository: EventRepository, val snowboarderRepos
     @GetMapping("/events")
     fun index():String {
         val events = eventRepository.findAll()
-        return renderTemplate("events_list", mapOf("events" to events))
+        return renderTemplate("events/events_list", mapOf("events" to events))
     }
 
     @GetMapping("/events/{id}")
     fun show(@PathVariable id: Long): String {
         val event = eventRepository.findById(id).get()
         val snowboarders = snowboarderRepository.findAll()
-        return renderTemplate("events_show", mapOf("event" to event, "snowboarders" to snowboarders))
+        return renderTemplate("events/events_show",
+            mapOf("event" to event, "snowboarders" to snowboarders)
+        )
     }
 
     @PostMapping("/events")

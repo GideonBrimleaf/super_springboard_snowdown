@@ -14,14 +14,16 @@ class SnowboarderController(val snowboarderService: SnowboarderService, val even
     @GetMapping("/snowboarders")
     fun index(): String {
         val snowboarders = mapOf("snowboarders" to snowboarderService.findSnowboarders())
-        return renderTemplate("snowboarders_list", snowboarders)
+        return renderTemplate("snowboarders/snowboarders_list", snowboarders)
     }
 
     @GetMapping("/snowboarders/{id}")
     fun show(@PathVariable id:Long):String {
         val snowboarder = snowboarderService.findSnowboarderById(id).get()
         val events = eventRepository.findAll()
-        return renderTemplate("snowboarder_show", mapOf("snowboarder" to snowboarder, "events" to events))
+        return renderTemplate("snowboarders/snowboarder_show",
+            mapOf("snowboarder" to snowboarder, "events" to events)
+        )
     }
 
     @PostMapping("/snowboarders")
