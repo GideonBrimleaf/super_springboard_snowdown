@@ -3,6 +3,7 @@ package super_springboard_snowdown.controllers
 import org.springframework.util.MultiValueMap
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.view.RedirectView
+import super_springboard_snowdown.models.Event
 import super_springboard_snowdown.repositories.EventRepository
 import super_springboard_snowdown.repositories.SnowboarderRepository
 
@@ -19,6 +20,17 @@ class EventController(val eventRepository: EventRepository, val snowboarderRepos
         val event = eventRepository.findById(id).get()
         val snowboarders = snowboarderRepository.findAll()
         return renderTemplate("events_show", mapOf("event" to event, "snowboarders" to snowboarders))
+    }
+
+    @PostMapping("/events")
+    fun create(@RequestBody formData: MultiValueMap<String, String>): RedirectView {
+        val name = formData["name"]!!.first()
+        val location = formData["location"]!!.first()
+        val prizeMoney = formData["prize_money"]!!.first().toInt()
+
+        val newEvent = Event(name = name, location = location, prizeMoney = prizeMoney)
+        eventRepository.save(newEvent)
+        return RedirectView("/events")
     }
 
     @PostMapping("/events/{id}/add-snowboarder")
