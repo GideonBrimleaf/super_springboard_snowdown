@@ -3,9 +3,18 @@
 {% block content %}
   <main>
     <h1 class="my-5 mx-10 text-5xl text-center">My List of Events:</h1>
+      <form class="text-center" action="/events" method="post">
+          <label for="name">Event Name:</label>
+          <input class="border rounded-md" type="text" id="name" name="name" placeholder="Event Name">
+          <label for="location">Event Location:</label>
+          <input class="border rounded-md" type="text" id="location" name="location" placeholder="Event Age">
+          <label for="prize_money">Prize Money $:</label>
+          <input class="border rounded-md" type="number" id="prize_money" name="prize_money">
+          <input type="submit" value="Create Event">
+      </form>
     <ul>
       {% for event in events %}
-        <li class="ml-10">
+        <li class="mx-10 my-5">
             <a href="/events/{{ event.id }}">{{ event.name }} - {{ event.location }}</a>
         </li>
       {% endfor %}
