@@ -8,7 +8,7 @@
       <input class="border rounded-md" type="text" id="name" name="name" placeholder="Snowboarder Name">
       <label for="age">Snowboarder Age:</label>
       <input class="border rounded-md" type="text" id="age" name="age" placeholder="Snowboarder Age">
-      <label for="name">Profile Image:</label>
+      <label for="image">Profile Image:</label>
       <input class="border rounded-md" type="text" id="image" name="profile">
       <input type="submit" value="Create Athlete">
     </form>
