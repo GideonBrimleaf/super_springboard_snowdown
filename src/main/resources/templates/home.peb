@@ -1,6 +1,6 @@
 {% extends 'templates/app.peb' %}
 
-{% block content %}
+{% block main %}
 <main>
   <h1 class="my-4 text-5xl text-center">Welcome to The Superboard Snowdown!</h1>
     <div class="flex justify-center">

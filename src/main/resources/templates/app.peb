@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <title>Super Springboard Snowdown</title>
-</head>
-<body>
+{% extends 'templates/base.peb' %}
+
+{% block content %}
   <header class="bg-gray-800 h-12 flex pt-4">
     <a href="/"><h1 class="ml-4 bold text-white">Superboard Snowdown</h1></a>
-    <nav class="ml-auto mr-4">
-      <ul class="flex">
-        <li class="mx-2"><a href="/events" class="text-white">Events</a><li>
-        <li class="mx-2"><a href="/snowboarders" class="text-white">Snowboarders</a><li>
-      </ul>
-    </nav>
+    {% include "templates/partials/nav.peb" %}
   </header>
-  {% block content %} {% endblock %}
-</body>
-</html>
+  {% block main %} {% endblock %}
+{% endblock %}

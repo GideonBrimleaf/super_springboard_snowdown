@@ -1,6 +1,6 @@
 {% extends 'templates/app.peb' %}
 
-{% block content %}
+{% block main %}
   <main>
     <h1 class="my-5 mx-10 text-5xl text-center">My List of Events:</h1>
       <form class="text-center" action="/events" method="post">

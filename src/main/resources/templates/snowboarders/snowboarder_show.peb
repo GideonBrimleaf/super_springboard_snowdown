@@ -1,6 +1,6 @@
 {% extends 'templates/app.peb' %}
 
-{% block content %}
+{% block main %}
   <main class="mx-10 my-5">
     <h1>{{ snowboarder.name }}</h1>
     <div class="h-1/4 w-1/4">

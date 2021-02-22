@@ -1,0 +1,6 @@
+ <nav class="ml-auto mr-4">
+  <ul class="flex">
+    <li class="mx-2"><a href="/events" class="text-white">Events</a><li>
+    <li class="mx-2"><a href="/snowboarders" class="text-white">Snowboarders</a><li>
+  </ul>
+</nav>
