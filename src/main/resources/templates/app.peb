@@ -1,9 +1,6 @@
 {% extends 'templates/base.peb' %}
 
 {% block content %}
-  <header class="bg-gray-800 h-12 flex pt-4">
-    <a href="/"><h1 class="ml-4 bold text-white">Superboard Snowdown</h1></a>
-    {% include "templates/partials/nav.peb" %}
-  </header>
-  {% block main %} {% endblock %}
+    {% include "templates/partials/signout.peb" %}
+    {% block main %} {% endblock %}
 {% endblock %}

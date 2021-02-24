@@ -6,6 +6,10 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Super Springboard Snowdown</title>
 </head>
+<header class="bg-gray-800 h-12 flex pt-4">
+    <a href="/"><h1 class="ml-4 bold text-white">Superboard Snowdown</h1></a>
+    {% include "templates/partials/nav.peb" %}
+</header>
 <body>
   {% block content %} {% endblock %}
 </body>

@@ -1,0 +1,3 @@
+<form class="bg-red-400 flex" method="post" action="/logout">
+  <button class="ml-auto mr-6 text-white text-right" id="logout-button" type="submit">Logout</button>
+</form>
