@@ -23,13 +23,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("io.pebbletemplates:pebble-spring-boot-starter:3.1.4")
-//	implementation("org.springframework.boot:spring-boot-starter-security")
-//	implementation("com.okta.spring:okta-spring-boot-starter:2.0.1")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("com.okta.spring:okta-spring-boot-starter:2.0.1")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.kotest:kotest-runner-junit5:4.4.1")
 	testImplementation("io.kotest:kotest-extensions-spring:4.4.1")
-//	testImplementation("org.springframework.security:spring-security-test")
+	testImplementation("org.springframework.security:spring-security-test")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
