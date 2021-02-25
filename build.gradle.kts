@@ -22,7 +22,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("io.pebbletemplates:pebble-spring-boot-starter:3.1.4")
+	implementation("io.pebbletemplates:pebble-spring-boot-starter:3.1.5")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("com.okta.spring:okta-spring-boot-starter:2.0.1")
 	runtimeOnly("com.h2database:h2")

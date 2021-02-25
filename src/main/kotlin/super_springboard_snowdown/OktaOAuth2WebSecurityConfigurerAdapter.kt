@@ -10,7 +10,8 @@ import org.springframework.security.config.web.server.ServerHttpSecurity.http
 class OktaOAuth2WebSecurityConfigurerAdapter: WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity?) {
-        http?.csrf()?.disable()?.authorizeRequests()
+//        http?.csrf()?.disable()?.authorizeRequests()
+        http?.authorizeRequests()
             ?.antMatchers("/")?.permitAll()
             ?.anyRequest()?.authenticated()
             ?.and()?.oauth2Login()
